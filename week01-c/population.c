@@ -3,18 +3,30 @@
 
 int main(void)
 {
-    int qty = get_int("Qty of llamas: ");
-    int goal = get_int("Goal qty of llamas: ");
-    int years = 0;
-
-    while (qty != goal)
+    int start;
+    do
     {
-        int bornLlamas = qty / 3;
-        int passAwayLlamas = qty / 4;
-        qty += (bornLlamas - passAwayLlamas);
+        start = get_int("Start size: ");
+    }
+    while (start < 9);
 
+    int end;
+    do
+    {
+        end = get_int("End size: ");
+    }
+    while (end < start);
+
+    int years = 0;
+    while (start < end)
+    {
+        int born = start / 3;
+        int passAway = start / 4;
+        int n = born - passAway;
+
+        start += n;
         years++;
     }
 
-    printf("Year: %i\n", years);
+    printf("Years: %i\n", years);
 }
